@@ -51,7 +51,7 @@ What has changed in this version of the Community Edition?
 ## Upgrade Instructions:
 =====================
 
-:warning: GetSimle v3.3.16 or newer required
+:warning: GetSimple v3.3.16 or newer required.
 - Always create a backup to protect against the unexpected!
 - Overwrite existing files with the files included in this patch.
 - Update your existing "gsconfig.php" with the following:
