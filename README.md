@@ -1,2 +1,2 @@
-# patch-GS-3.3.17
-GetSimpleCMS php7.x-8.0.13 compatibility added
+# patch-GS-3.3.18
+GetSimpleCMS php7.4-8.1 compatibility added
