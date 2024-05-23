@@ -42,7 +42,7 @@ $themepath = GSTHEMESPATH.$template.DIRECTORY_SEPARATOR;
 if(!filepath_is_safe($themepath.$template_file,GSTHEMESPATH,true)) die();
 
 # check for form submission
-if((isset($_POST['submitsave']))){
+if(isset($_POST['submitsave'])){
 	
 	# check for csrf
 	if (!defined('GSNOCSRF') || (GSNOCSRF == FALSE) ) {
@@ -55,7 +55,15 @@ if((isset($_POST['submitsave']))){
 	# save edited template file
 	$SavedFile = $_POST['edited_file'];
 	$FileContents = $_POST['content'];
-	$fh = fopen(GSTHEMESPATH . $SavedFile, 'w') or die("can't open file");
+	
+	// prevent directory traversal
+	$allowedDirectory = realpath(GSTHEMESPATH);
+	$fullPath = realpath($allowedDirectory . '/' . $SavedFile);
+	if(strpos($fullPath, $allowedDirectory) !== 0) {
+		die("Invalid file path");
+	}
+	
+	$fh = fopen($fullPath, 'w') or die("can't open file");
 	fwrite($fh, $FileContents);
 	fclose($fh);
 	$success = sprintf(i18n_r('TEMPLATE_FILE'), $SavedFile);
@@ -87,7 +95,7 @@ if (count($theme_dir_array) == 1){ $theme_options = ''; }
 
 $templates = directoryToArray(GSTHEMESPATH . $template . '/', true);
 $theme_templates .= '<span id="themefiles"><select class="text" id="theme_files" style="width:425px;" name="f" >';
-$allowed_extensions=['php', 'css', 'js', 'html', 'htm'];
+$allowed_extensions=['php', 'css', 'js', 'html', 'htm','json'];
 foreach ($templates as $file){
   $extension=pathinfo($file,PATHINFO_EXTENSION);
   if (in_array($extension, $allowed_extensions)){
