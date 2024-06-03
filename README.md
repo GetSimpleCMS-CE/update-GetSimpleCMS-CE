@@ -34,10 +34,6 @@ The official unofficial GS update repo. Helping to bridge the gap in PHP compati
 - After uploading open yoursite.com/admin to complete the upgrade.
 
 
-#### New as of v3.3.20
-
-- Enable new 'modernScript' plugin.
-
 #### New as of v3.3.19.1
 
 - Update your existing "gsconfig.php" with the following:
