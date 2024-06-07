@@ -84,20 +84,19 @@ forcePasteAsPlainText : true
 
 ## Whats New? :pushpin: ##
 
-- New - jQuery, W3 & AlpineJS added to core (simplify plugin development)
-- New - Ability to choose modern admin css/js for plugins (modernScript plugin)
 - New - Replaced fancybox with SimpleLightbox
 - Update - Massive Admin 5.x
+- Update - Install/Upgrade/Email
 - Update - Support page
 - Update - Support>ErrorLog
 - Update - Backup>Website Archives
 - Removed - Deprecated Uploadify & Jcrop
 - Fix - Password Reset
 - Fix - Components copy code
-- Fix - Remote command execution vulnerability #1352  (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1352)
-- Fix - Cross-Site Scripting Vulnerability #1360 (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1360)
+- Hotfixes - Remote command execution vulnerability #1352  (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1352)
+- Hotfixes - Cross-Site Scripting Vulnerability #1360 (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1360)
 - Other Minor php8.x compatibility improvements
-- Other minor fixes and improvements
+- Other minor cleanup, fixes and improvements
 
 ### Recent Updates: ###
 
