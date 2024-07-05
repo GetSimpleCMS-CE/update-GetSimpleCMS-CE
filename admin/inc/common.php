@@ -309,8 +309,23 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 	if(!getDef('GSDEBUGINSTALL',true)){	
 		# if you've made it this far, the site is already installed so remove the installation files
 		$filedeletionstatus=true;
+		if (file_exists(GSADMINPATH.'cron.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'cron.php');
+		}
+		if (file_exists(GSADMINPATH.'humans.txt'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'humans.txt');
+		}
+		if (file_exists(GSADMINPATH.'load-ajax.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'load-ajax.php');
+		}
+		if (file_exists(GSADMINPATH.'loadtab.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'loadtab.php');
+		}
 		if (file_exists(GSADMINPATH.'install.php'))	{
 			$filedeletionstatus = unlink(GSADMINPATH.'install.php');
+		}
+		if (file_exists(GSADMINPATH.'option.txt'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'option.txt');
 		}
 		if (file_exists(GSADMINPATH.'setup.php'))	{
 			$filedeletionstatus = unlink(GSADMINPATH.'setup.php');
@@ -318,8 +333,20 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 		if (file_exists(GSADMINPATH.'update.php'))	{
 			$filedeletionstatus = unlink(GSADMINPATH.'update.php');
 		}
-		if (file_exists(GSADMINPATH.'option.txt'))	{
-			$filedeletionstatus = unlink(GSADMINPATH.'option.txt');
+		if (file_exists(GSADMINPATH.'uploadify-check-exists.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'uploadify-check-exists.php');
+		}
+		if (file_exists(GSADMINPATH.'upload-uploadify.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'upload-uploadify.php');
+		}
+		if (file_exists(GSADMINPATH.'inc/nonce.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'inc/nonce.php');
+		}
+		if (file_exists(GSADMINPATH.'inc/xss.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'inc/xss.php');
+		}
+		if (file_exists(GSADMINPATH.'inc/xss.php'))	{
+			$filedeletionstatus = unlink(GSADMINPATH.'inc/ZipArchive.php');
 		}
 		if (file_exists('../readme.txt'))	{
 			$filedeletionstatus = unlink('../readme.txt');
@@ -367,7 +394,7 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 			return rmdir($dir);
 		}
 
-		$dir = '../install_TMP';
+		$dir = '../install_TMP';';
 		if (file_exists($dir)) {
 			$filedeletionstatus = deleteDirectory($dir);
 			if ($filedeletionstatus) {
