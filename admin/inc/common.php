@@ -321,11 +321,20 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 		if (file_exists(GSADMINPATH.'option.txt'))	{
 			$filedeletionstatus = unlink(GSADMINPATH.'option.txt');
 		}
+		if (file_exists('../readme.txt'))	{
+			$filedeletionstatus = unlink('../readme.txt');
+		}
 		if (file_exists('../README.md'))	{
 			$filedeletionstatus = unlink('../README.md');
 		}
+		if (file_exists('../LICENSE.txt'))	{
+			$filedeletionstatus = unlink('../LICENSE.txt');
+		}
 		if (file_exists('../LICENSE'))	{
 			$filedeletionstatus = unlink('../LICENSE');
+		}
+		if (file_exists('../Tmpfile.zip'))	{
+			$filedeletionstatus = unlink('../Tmpfile.zip');
 		}
 		if (file_exists('../plugins/README.md'))	{
 			$filedeletionstatus = unlink('../plugins/README.md');
@@ -336,6 +345,38 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 		if (!$filedeletionstatus) {
 			$error = sprintf(i18n_r('ERR_CANNOT_DELETE'), '<code>/'.$GSADMIN.'/install.php</code>, <code>/'.$GSADMIN.'/setup.php</code> or <code>/'.$GSADMIN.'/update.php</code>');
 		}
+		function deleteDirectory($dir) {
+			if (!file_exists($dir)) {
+				return true;
+			}
+
+			if (!is_dir($dir)) {
+				return unlink($dir);
+			}
+
+			foreach (scandir($dir) as $item) {
+				if ($item == '.' || $item == '..') {
+					continue;
+				}
+
+				if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+					return false;
+				}
+			}
+
+			return rmdir($dir);
+		}
+
+		$dir = '../install_TMP';
+		if (file_exists($dir)) {
+			$filedeletionstatus = deleteDirectory($dir);
+			if ($filedeletionstatus) {
+				echo "Directory removed successfully.";
+			} else {
+				echo "Failed to remove the directory.";
+			}
+		}
+
 	}	
 
 }
