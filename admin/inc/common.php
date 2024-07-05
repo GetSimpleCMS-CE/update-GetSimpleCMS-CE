@@ -394,7 +394,7 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 			return rmdir($dir);
 		}
 
-		$dir = '../install_TMP';';
+		$dir = '../install_TMP';
 		if (file_exists($dir)) {
 			$filedeletionstatus = deleteDirectory($dir);
 			if ($filedeletionstatus) {
