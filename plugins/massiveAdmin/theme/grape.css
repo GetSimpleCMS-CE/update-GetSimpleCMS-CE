@@ -130,6 +130,8 @@ html body#load div.wrapper div.bodycontent.clearfix div#maincontent div.main for
 
 #pagechangednotify:not(:empty) {padding: 5px 10px !important; background-color: white; border-radius: 10px; border: dashed 2px red; box-shadow: 0px 5px 5px rgb(26, 26, 26);}
 
+input#page_submit.submit, form#navigationForm input.submit, #components input#button.submit, #theme-edit form p#submit_line span input.submit, #upload form.uploadform input.submit, #load form.settheme button{background: #4CAF50 !important; padding: 8px 16px; font-size:18px;font-weight:400}
+
 #footer{color:#4B497B;}
 #footer a:link, #footer a:visited {color:#4B497B;font-weight:600 !important;}
 
