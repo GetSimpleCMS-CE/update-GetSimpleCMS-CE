@@ -38,39 +38,39 @@ The official unofficial GS update repo. Helping to bridge the gap in PHP compati
 
 - Update your existing "gsconfig.php" with the following:
 
-Add New:
-```
-# Login Page Default Language;
-$LANG = 'en_EN'; // es_ES, pl_PL, de_DE, uk_UK, etc.
-
-# Sort admin page list by title or menu
-define('GSSORTPAGELISTBY','menu');
-```
-
 Replace section:
 ```
+# Use Uploadify to upload files?
+#define('GSNOUPLOADIFY', 0); // 0 to reenable uploadify ( uploadify is outdated flash based and has known xss exploits! USE AT OWN RISK )
+
 # WYSIWYG editor height (default 500)
-# define('GSEDITORHEIGHT', '400');
+#define('GSEDITORHEIGHT', '400');
 
 # WYSIWYG toolbars (advanced, basic or [custom config]) 
-# define('GSEDITORTOOL', 'advanced');
+#define('GSEDITORTOOL', 'advanced');
 
 # WYSIWYG editor language (default en)
-# define('GSEDITORLANG', 'en');
+#define('GSEDITORLANG', 'en');
 
 # WYSIWYG Editor Options
-# define('GSEDITOROPTIONS', '');
+#define('GSEDITOROPTIONS', '');
 ```
 With updated:
 ```
+# Login Page Default Language: en_EN, es_ES, pl_PL, de_DE, uk_UK, etc.
+$LANG = 'en_EN';
+
+# Sort admin page list by title or menu
+define('GSSORTPAGELISTBY','menu');
+
 # WYSIWYG editor height (default 500)
 # define('GSEDITORHEIGHT', '400');
 
-# WYSIWYG editor language (default en)
-# define('GSEDITORLANG', 'en');
-
 # WYSIWYG toolbars (advanced, basic, CEbar, island or [custom config])
 define('GSEDITORTOOL', "CEbar");
+
+# WYSIWYG editor language (default en)
+# define('GSEDITORLANG', 'en');
 
 # WYSIWYG Editor Options
 define('GSEDITOROPTIONS', '
@@ -79,7 +79,6 @@ disableNativeSpellChecker : false,
 forcePasteAsPlainText : true
 ');
 ```
-
 
 
 ## Whats New? :pushpin: ##
