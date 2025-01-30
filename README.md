@@ -90,6 +90,7 @@ forcePasteAsPlainText : true
 - Update - Support page
 - Update - Support>ErrorLog
 - Update - Backup>Website Archives
+- Fix - Menu-Manager
 - Fix - Email HTML Render
 - Fix - Password Reset
 - Fix - Components copy code
