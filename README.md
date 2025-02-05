@@ -8,7 +8,7 @@
 ![PHP - v7.4-8.x](https://img.shields.io/badge/PHP-v7.4--8.x-orange)
 ![DataBase](https://img.shields.io/badge/FlatFile-purple)
 ![GitHub Release](https://img.shields.io/github/v/release/GetSimpleCMS-CE/GetSimpleCMS-CE?color=yellow)
-[![Documentation - Available](https://img.shields.io/badge/Documentation-Available-red)](http://get-simple.info/wiki/start)
+[![Documentation - Available](https://img.shields.io/badge/Documentation-Available-red)](https://github.com/GetSimpleCMS-CE/GetSimpleCMS-CE/wiki)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green)](#license)
 
 </div>
@@ -38,39 +38,39 @@ The official unofficial GS update repo. Helping to bridge the gap in PHP compati
 
 - Update your existing "gsconfig.php" with the following:
 
-Add New:
-```
-# Login Page Default Language;
-$LANG = 'en_EN'; // es_ES, pl_PL, de_DE, uk_UK, etc.
-
-# Sort admin page list by title or menu
-define('GSSORTPAGELISTBY','menu');
-```
-
 Replace section:
 ```
+# Use Uploadify to upload files?
+#define('GSNOUPLOADIFY', 0); // 0 to reenable uploadify ( uploadify is outdated flash based and has known xss exploits! USE AT OWN RISK )
+
 # WYSIWYG editor height (default 500)
-# define('GSEDITORHEIGHT', '400');
+#define('GSEDITORHEIGHT', '400');
 
 # WYSIWYG toolbars (advanced, basic or [custom config]) 
-# define('GSEDITORTOOL', 'advanced');
+#define('GSEDITORTOOL', 'advanced');
 
 # WYSIWYG editor language (default en)
-# define('GSEDITORLANG', 'en');
+#define('GSEDITORLANG', 'en');
 
 # WYSIWYG Editor Options
-# define('GSEDITOROPTIONS', '');
+#define('GSEDITOROPTIONS', '');
 ```
 With updated:
 ```
+# Login Page Default Language: en_EN, es_ES, pl_PL, de_DE, uk_UK, etc.
+$LANG = 'en_EN';
+
+# Sort admin page list by title or menu
+define('GSSORTPAGELISTBY','menu');
+
 # WYSIWYG editor height (default 500)
 # define('GSEDITORHEIGHT', '400');
 
-# WYSIWYG editor language (default en)
-# define('GSEDITORLANG', 'en');
-
 # WYSIWYG toolbars (advanced, basic, CEbar, island or [custom config])
 define('GSEDITORTOOL', "CEbar");
+
+# WYSIWYG editor language (default en)
+# define('GSEDITORLANG', 'en');
 
 # WYSIWYG Editor Options
 define('GSEDITOROPTIONS', '
@@ -81,23 +81,26 @@ forcePasteAsPlainText : true
 ```
 
 
-
 ## Whats New? :pushpin: ##
 
-- New - jQuery, W3 & AlpineJS added to core (simplify plugin development)
-- New - Ability to choose modern admin css/js for plugins (modernScript plugin)
 - New - Replaced fancybox with SimpleLightbox
 - Update - Massive Admin 5.x
+- Update - Codemirror
+- Update - Install/Upgrade Email
 - Update - Support page
 - Update - Support>ErrorLog
 - Update - Backup>Website Archives
-- Removed - Deprecated Uploadify & Jcrop
+- Fix - Menu-Manager
+- Fix - Email HTML Render
 - Fix - Password Reset
 - Fix - Components copy code
+- Fix - jCrop
+- Removed - Deprecated Uploadify
+- Removed - Outdated Demo Templates & Plugins
+- Removed - Dead Files
 - Hotfixes - Remote command execution vulnerability #1352  (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1352)
 - Hotfixes - Cross-Site Scripting Vulnerability #1360 (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1360)
-- Other Minor php8.x compatibility improvements
-- Other minor fixes and improvements
+- Other minor cleanup, fixes and improvements
 
 ### Recent Updates: ###
 
@@ -178,7 +181,7 @@ It would be great if you would link back to https://getsimple-ce.ovh/ if you use
 
 ## REQUIREMENTS: :pushpin:
 
-http://get-simple.info/docs/requirements
+https://github.com/GetSimpleCMS-CE/GetSimpleCMS-CE/wiki/Server-Requirements
 
 ### Build Requirements ###
 
@@ -202,7 +205,7 @@ While GetSimple strives to be a secure and stable application, we simply cannot
 be held liable for any information loss, corruption or anything else that may 
 happen to your site while it is using the our software. If you find a bug 
 or security hole, please contact someone in the forums at 
-http://get-simple.info/forum
+https://github.com/GetSimpleCMS-CE/GetSimpleCMS-CE/discussions
 
 
 ## Credits :pushpin:

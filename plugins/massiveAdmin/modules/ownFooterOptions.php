@@ -1,190 +1,198 @@
 <?php
 $filename = GSDATAOTHERPATH . '/massiveOwnFooter/OwnFooter.json';
 $datee = @file_get_contents($filename);
-$data = json_decode($datee);; ?>
+$data = json_decode($datee);
+?>
 
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <style>
-	#ownfooterform {
-		width: 100%;
-		background: #fafafa;
-		border: solid 1px #ddd;
-		padding: 10px;
-	}
-
-	#ownfooterform input {
-		width: 100%;
-		padding: 5px;
-		margin: 10px 0;
-	}
-
-	#ownfooterform input[type="submit"] {
-		background: #000;
+	input::file-selector-button {
+		background-color: var(--main-color);
+		border: 0;
+		border-radius: 5px;
 		color: #fff;
-		border: none;
-		padding: 10px;
+		padding: .75rem 1rem;
+		margin: 0 10px 20px 20px;
 	}
 
-	#ownfooterform input[type="checkbox"] {
-		all: revert;
-		padding: 0;
+	input::file-selector-button:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+	}
+
+	.CodeMirror {
+		font-size: 15px;
+		width: 100%;
+		margin-top: 5px;
 	}
 </style>
 
-<h3><?php echo i18n_r('massiveAdmin/OWNFOOTERTITLE'); ?></h3>
+<div class="w3-parent w3-container"><!-- Start Plug -->
 
-<form id="ownfooterform" action="#" method="POST" enctype="multipart/form-data">
+	<h3><?php echo i18n_r('massiveAdmin/OWNFOOTERTITLE'); ?></h3>
+	<hr>
 
-	<div style="background:#ddd; padding:10px; display:flex; aling-items:center; margin-bottom:10px; justify-content:space-between; border:solid 1px #111;">
-		<label for="turnon" style="margin-top: 2px;"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
-		<input type="checkbox" name="turnon" class="checkbox" value="true">
-	</div>
+	<form id="ownfooterform" action="#" method="POST" enctype="multipart/form-data">
+		<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-gs-main w3-round">
+			<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+			<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="turnon" value="true">
+		</div>
 
-	<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>
-	<input type="text" value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
+		<div class="w3-margin-bottom">
+			<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>
+			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
+		</div>
 
-	<label for="ownfootericon"><?php echo i18n_r('massiveAdmin/OWNFOOTERICON'); ?></label>
-	<input type="file" name="ownfootericon">
+		<div class="w3-margin-bottom">
 
-	<label for="ownlogo"><?php echo i18n_r('massiveAdmin/OWNLOGO'); ?></label>
+			<?php if ($data->ownfootericon !== null || $data->ownfootericon !== ''): ?>
+				<img src="<?php global $SITEURL;
+							echo $SITEURL . 'data/other/footerfoto/' . $data->ownfootericon; ?>" style="width:80px;height:80px;display:block;border:solid 1px #ddd;padding:5px;margin:10px 0;object-fit:contain;">
 
-	<select name="ownlogo" class="ownlogo" style="width:100%; padding:5px; margin:10px 0;"><br>
-		<option value="yes"><?php echo i18n_r('massiveAdmin/YES'); ?></option>
-		<option value="no"><?php echo i18n_r('massiveAdmin/NO'); ?></option>
-	</select>
+			<?php endif; ?>
 
-	<label for="ownfooterlink"><?php echo i18n_r('massiveAdmin/OWNFOOTERLINK'); ?></label>
-	<input type="text" value="<?php echo $data->ownfooterlink ?? ''; ?>" style="margin-top:10px;display:block;" name="ownfooterlink">
+			<label for="ownfootericon"><?php echo i18n_r('massiveAdmin/OWNFOOTERICON'); ?></label>
+			<input class="w3-input" type="file" value="<?php echo $data->ownfootericon; ?>" name="ownfootericon">
+		</div>
 
-	<br>
+		<div class="w3-margin-bottom">
+			<label for="ownlogo"><?php echo i18n_r('massiveAdmin/OWNLOGO'); ?></label>
+			<select class="w3-select w3-padding w3-border ownlogo" style="width:96%" name="ownlogo"><br>
+				<option value="yes"><?php echo i18n_r('massiveAdmin/YES'); ?></option>
+				<option value="no"><?php echo i18n_r('massiveAdmin/NO'); ?></option>
+			</select>
+		</div>
 
-	<?php global $SITEURL; ?>
+		<div class="w3-margin-bottom">
+			<label for="ownfooterlink"><?php echo i18n_r('massiveAdmin/OWNFOOTERLINK'); ?></label>
+			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfooterlink ?? ''; ?>" name="ownfooterlink">
+		</div>
 
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/blackboard.min.css" integrity="sha512-KnHAkH0/78Cyjs1tjV9/+00HK8gu1uKRCCKcWFxX0+rehRh9SYJqiG/2fY4St7H8rPItOsBkgQjN0m4rL5Wobw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/php.min.js" integrity="sha512-jZGz5n9AVTuQGhKTL0QzOm6bxxIQjaSbins+vD3OIdI7mtnmYE6h/L+UBGIp/SssLggbkxRzp9XkQNA4AyjFBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/css.min.js" integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/javascript.min.js" integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/htmlmixed.min.js" integrity="sha512-HN6cn6mIWeFJFwRN9yetDAMSh+AK9myHF1X9GlSlKmThaat65342Yw8wL7ITuaJnPioG0SYG09gy0qd5+s777w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js" integrity="sha512-l8ZIWnQ3XHPRG3MQ8+hT1OffRSTrFwrph1j1oc1Fzc9UKVGef5XN9fdO0vm3nW0PRgQ9LJgck6ciG59m69rvfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<?php global $SITEURL; ?>
 
-	<style type="text/css">
-		.CodeMirror {
-			font-size: 15px;
-			width: 100%, ;
-			margin-top: 5px;
-		}
-	</style>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/codemirror.min.js"></script>
+		<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/codemirror.min.css">
+		<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/blackboard.min.css">
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/php.min.js"></script>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/css.min.js"></script>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/javascript.min.js"></script>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/xml.min.js"></script>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/htmlmixed.min.js"></script>
+		<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js"></script>
 
-	<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
-	<textarea name="ownheader" id="ownheader" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
+		<div class="w3-margin-bottom">
+			<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
+			<textarea name="ownheader" id="ownheader" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
+		</div>
 
-	<br>
+		<div class="w3-margin-bottom">
+			<label for="ownfooter"><?php echo i18n_r('massiveAdmin/OWNFOOTERFOOTER'); ?></label>
+			<textarea name="ownfooter" id="ownfooter" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
+		</div>
 
-	<label for="ownfooter"><?php echo i18n_r('massiveAdmin/OWNFOOTERFOOTER'); ?></label>
-	<textarea name="ownfooter" id="ownfooter" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
+		<script>
+			function editor(id) {
+				CodeMirror.fromTextArea(id, {
+					theme: "blackboard",
+					lineNumbers: true,
+					matchBrackets: true,
+					indentUnit: 4,
+					indentWithTabs: true,
+					lineWrapping: true,
+					enterMode: "keep",
+					tabMode: "shift",
+					mode: 'htmlmixed',
+					inlineDynamicImports: true
+				});
+			}
+			editor(ownheader);
+			editor(ownfooter);
+		</script>
+
+		<div class="w3-container w3-margin-bottom" style="margin-top:70px">
+			<h4><?php echo i18n_r('massiveAdmin/CHANGETITLECOLOR'); ?>:</h4>
+
+			<div class="w3-margin-bottom w3-padding w3-center w3-panel w3-gray w3-round">
+				<label class="w3-text-white" style="font-weight:600; padding-right:20px" for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+				<input class="w3-check turncolor" type="checkbox" value="true" name="turncolor">
+			</div>
+
+			<div class="w3-row w3-margin-bottom">
+				<div class="w3-half colors-item" style="padding:15px;">
+					<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/MAINCOLOR'); ?></label>
+					<input class="w3-input" type="color" value="<?php echo $data->maincolor ?? ''; ?>" name="maincolor">
+				</div>
+
+				<div class="w3-rest colors-item" style="padding:15px;">
+					<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/BGCOLOR'); ?></label>
+					<input class="w3-input" type="color" value="<?php echo $data->bgcolor ?? ''; ?>" name="bgcolor">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="w3-margin-top w3-center">
+			<button class="w3-btn w3-large w3-round w3-green" type="submit" name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+		</div>
+
+	</form>
 
 	<script>
-		function editor(id) {
-			CodeMirror.fromTextArea(id, {
-				theme: "blackboard",
-				lineNumbers: true,
-				matchBrackets: true,
-				indentUnit: 4,
-				indentWithTabs: true,
-				enterMode: "keep",
-				tabMode: "shift",
-				mode: 'htmlmixed',
-				inlineDynamicImports: true
-			});
+		const checkbox = '<?php echo $data->turnon; ?>';
+		const turncolor = '<?php echo $data->turncolor; ?>';
+
+		if (turncolor == 'true') {
+			document.querySelector('.turncolor').checked = true;
+		} else {
+			document.querySelector('.turncolor').checked = false;
 		}
-		editor(ownheader);
-		editor(ownfooter);
+		if (checkbox == 'true') {
+			document.querySelector('.checkbox').checked = true;
+		} else {
+			document.querySelector('.checkbox').checked = false;
+		}
+		if ("<?php echo $data->ownlogo; ?>" == "yes") {
+			document.querySelector(".ownlogo").value = "yes";
+		} else {
+			document.querySelector(".ownlogo").value = "no";
+		}
 	</script>
 
-	<br>
+	<?php
+	if (isset($_POST['submit'])) {
+		$turnon = $_POST['turnon'] ?? '';
+		if ($turnon == 'true') {
+			$turnon = "true";
+		} else {
+			$turnon = "false";
+		};
 
-	<label><?php echo i18n_r('massiveAdmin/CHANGETITLECOLOR'); ?></label>
-	<div class="colors" style="background:#ddd; padding:5px; display:flex; aling-items:center; margin:20px 0; justify-content:space-between; border:solid 1px #111; flex-wrap:wrap;">
+		$ownfootername = $_POST['ownfootername'] ?? '';
+		$ownlogo = $_POST['ownlogo'] ?? '';
+		$ownheader = $_POST['ownheader'] ?? '';
+		$ownheadernew =  json_encode($ownheader, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+		$ownfooter = $_POST['ownfooter'] ?? '';
+		$ownfooternew =  json_encode($ownfooter, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+		$ownfootericon = $_FILES["ownfootericon"]["name"];
 
-		<div class="colors-item" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:5px;">
-			<label for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
-			<input type="checkbox" class="turncolor" value="true" name="turncolor">
-		</div>
+		$maincolor = $_POST['maincolor'] ?? '';
+		$bgcolor = $_POST['bgcolor'] ?? '';
+		$turncolor = $_POST['turncolor'] ?? '';
+		if ($turncolor == 'true') {
+			$turncolor = "true";
+		} else {
+			$turncolor = "false";
+		};
 
-		<div class="colors-item" style="width:50%;padding:10px;">
-			<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/MAINCOLOR'); ?></label>
-			<input type="color" value="<?php echo $data->maincolor ?? ''; ?>" name="maincolor">
-		</div>
+		if ($ownfootericon == "") {
+			$ownfootericon = $data->ownfootericon;
+		}
 
-		<div class="colors-item" style="width:50%;padding:10px;">
-			<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/BGCOLOR'); ?></label>
-			<input type="color" value="<?php echo $data->bgcolor ?? ''; ?>" name="bgcolor">
-		</div>
+		$ownfooterlink = $_POST['ownfooterlink'];
 
-	</div>
-
-	<input type="submit" name="submit" value="<?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?>">
-
-</form>
-
-<script>
-	const checkbox = '<?php echo $data->turnon; ?>';
-	const turncolor = '<?php echo $data->turncolor; ?>';
-
-	if (turncolor == 'true') {
-		document.querySelector('.turncolor').checked = true;
-	} else {
-		document.querySelector('.turncolor').checked = false;
-	}
-	if (checkbox == 'true') {
-		document.querySelector('.checkbox').checked = true;
-	} else {
-		document.querySelector('.checkbox').checked = false;
-	}
-	if ("<?php echo $data->ownlogo; ?>" == "yes") {
-		document.querySelector(".ownlogo").value = "yes";
-	} else {
-		document.querySelector(".ownlogo").value = "no";
-	}
-</script>
-
-<?php
-if (isset($_POST['submit'])) {
-	$turnon = $_POST['turnon'] ?? '';
-	if ($turnon == 'true') {
-		$turnon = "true";
-	} else {
-		$turnon = "false";
-	};
-
-	$ownfootername = $_POST['ownfootername'] ?? '';
-	$ownlogo = $_POST['ownlogo'] ?? '';
-	$ownheader = $_POST['ownheader'] ?? '';
-	$ownheadernew =  json_encode($ownheader, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
-	$ownfooter = $_POST['ownfooter'] ?? '';
-	$ownfooternew =  json_encode($ownfooter, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
-	$ownfootericon = $_FILES["ownfootericon"]["name"];
-
-	$maincolor = $_POST['maincolor'] ?? '';
-	$bgcolor = $_POST['bgcolor'] ?? '';
-	$turncolor = $_POST['turncolor'] ?? '';
-	if ($turncolor == 'true') {
-		$turncolor = "true";
-	} else {
-		$turncolor = "false";
-	};
-
-	if ($ownfootericon == "") {
-		$ownfootericon = $data->ownfootericon;
-	}
-
-	$ownfooterlink = $_POST['ownfooterlink'];
-
-	$json = '{
+		$json = '{
 	"turnon": "' . $turnon . '",
 	"ownfootername": "' . $ownfootername . '",
 	"ownfootericon": "' . $ownfootericon . '",
@@ -197,57 +205,58 @@ if (isset($_POST['submit'])) {
 	"maincolor": "' . $maincolor . '"
 }';
 
-	$massiveOwnFooterFolder = GSDATAOTHERPATH . '/massiveOwnFooter/';
-	$filejson = 'OwnFooter.json';
-	$finaljson = $massiveOwnFooterFolder . $filejson;
-	$chmod_mode    = 0755;
-	$folder_exists = file_exists($massiveOwnFooterFolder) || mkdir($massiveOwnFooterFolder, $chmod_mode);
+		$massiveOwnFooterFolder = GSDATAOTHERPATH . '/massiveOwnFooter/';
+		$filejson = 'OwnFooter.json';
+		$finaljson = $massiveOwnFooterFolder . $filejson;
+		$chmod_mode    = 0755;
+		$folder_exists = file_exists($massiveOwnFooterFolder) || mkdir($massiveOwnFooterFolder, $chmod_mode);
 
-	file_put_contents($finaljson, $json);
+		file_put_contents($finaljson, $json);
 
-	$massiveOwnFooterFolderFoto = GSDATAOTHERPATH . '/footerfoto/';
+		$massiveOwnFooterFolderFoto = GSDATAOTHERPATH . '/footerfoto/';
 
-	$target_dir =  $massiveOwnFooterFolderFoto;
-	$target_file = $target_dir . basename($_FILES["ownfootericon"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		$target_dir =  $massiveOwnFooterFolderFoto;
+		$target_file = $target_dir . basename($_FILES["ownfootericon"]["name"]);
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-	if (!file_exists($massiveOwnFooterFolderFoto)) {
-		mkdir($massiveOwnFooterFolderFoto, 0755);
-		$datas = 'Allow from all';
-		file_put_contents($massiveOwnFooterFolderFoto . '.htaccess', $datas);
-	};
+		if (!file_exists($massiveOwnFooterFolderFoto)) {
+			mkdir($massiveOwnFooterFolderFoto, 0755);
+			$datas = 'Allow from all';
+			file_put_contents($massiveOwnFooterFolderFoto . '.htaccess', $datas);
+		};
 
-	// Check if image file is a actual image or fake image
-	if (isset($_POST["ownfootericon"])) {
-		$check = getimagesize($_FILES["ownfootericon"]["tmp_name"]);
-		if ($check !== false) {
-			echo "File is an image - " . $check["mime"] . ".";
-			$uploadOk = 1;
-		} else {
-			echo "File is not an image.";
+		// Check if image file is a actual image or fake image
+		if (isset($_POST["ownfootericon"])) {
+			$check = getimagesize($_FILES["ownfootericon"]["tmp_name"]);
+			if ($check !== false) {
+				echo "File is an image - " . $check["mime"] . ".";
+				$uploadOk = 1;
+			} else {
+				echo "File is not an image.";
+				$uploadOk = 0;
+			}
+		}
+
+		// Allow certain file formats
+		if (
+			$imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+			&& $imageFileType != "gif"
+		) {
+			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 			$uploadOk = 0;
 		}
-	}
 
-	// Allow certain file formats
-	if (
-		$imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-		&& $imageFileType != "gif"
-	) {
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-		$uploadOk = 0;
-	}
-
-	if ($uploadOk == 0) {
-		echo "Sorry, your file was not uploaded.";
-	} else {
-		if (move_uploaded_file($_FILES["ownfootericon"]["tmp_name"], $target_file)) {
-			echo "The file " . htmlspecialchars(basename($_FILES["ownfootericon"]["name"])) . " has been uploaded.";
+		if ($uploadOk == 0) {
+			echo "Sorry, your file was not uploaded.";
 		} else {
-			echo "Sorry, there was an error uploading your file.";
+			if (move_uploaded_file($_FILES["ownfootericon"]["tmp_name"], $target_file)) {
+				echo "The file " . htmlspecialchars(basename($_FILES["ownfootericon"]["name"])) . " has been uploaded.";
+			} else {
+				echo "Sorry, there was an error uploading your file.";
+			}
 		}
-	}
 
-	echo ("<meta http-equiv='refresh' content='0'>");
-}; ?>
+		echo ("<meta http-equiv='refresh' content='0'>");
+	};
+	?>
