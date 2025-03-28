@@ -57,6 +57,9 @@ if(isset($_POST['submitted'])) {
 		# create new password
 		$random = createRandomPassword();
 		$PASSWD = passhash($random);
+
+		# Create default role for user
+		$ROLE = 'ADMIN';
 		
 		# create user xml file
 		$file = _id($USR).'.xml';
@@ -68,6 +71,7 @@ if(isset($_POST['submitted'])) {
 		$xml->addChild('HTMLEDITOR', '1');
 		$xml->addChild('TIMEZONE', $TIMEZONE);
 		$xml->addChild('LANG', $LANG);
+		$xml->addChild('ROLE', $ROLE);
 		if (! XMLsave($xml, GSUSERSPATH . $file) ) {
 			$kill = i18n_r('CHMOD_ERROR');
 		}
@@ -158,7 +162,7 @@ if(isset($_POST['submitted'])) {
 		$status   = sendmail($EMAIL,$subject,$message);
 		# activate default plugins
 		change_plugin('massiveAdmin.php',true);
-		change_plugin('UpgradeCE.php',true);
+		change_plugin('UpdateCE.php',true);
 
 		# set the login cookie, then redirect user to secure panel
 		create_cookie();
