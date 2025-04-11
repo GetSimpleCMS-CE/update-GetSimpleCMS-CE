@@ -50,7 +50,7 @@ Now supporting php7.4-8.x.
 
 ## What's New ⭐
 
-- New:  Check for Update  added to Install & Health Check
+- New: Check for Update added to Install, Health Check & Plugins
 
 ### Updates:
 
