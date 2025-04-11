@@ -50,37 +50,27 @@ Now supporting php7.4-8.x.
 
 ## What's New ⭐
 
-- New: UpdateCE plugin included. Easily update your install to the latest version.
-- New: Replaced Fancybox with SimpleLightbox
-- New: Arabic language added
+- New:  Check for Update  added to Install & Health Check
 
 ### Updates:
 
-- Updated: Massive Admin 6.x
-- Updated: Codemirror
-- Updated: Install/Upgrade Email
-- Updated: Support Page
-- Updated: Support > Error Log
-- Updated: Backup > Website Archives
+- Updated: Plugin Massive Admin v6.x
+- Updated: Plugin Update CE v1.x
 
 ### Fixes:
 
-- Fixed: Menu Manager
-- Fixed: Email HTML rendering issue
-- Fixed: Password reset functionality
-- Fixed: Components copy code issue
-- Fixed: jCrop
+- Fixed: French language
+- Fixed: ja_JP name change for Linux
+- Fixed: Hidden plugin
+- Fixed: Auto Menu Title
 
 ### Removals:
 
-- Removed: Deprecated Uploadify
-- Removed: Outdated demo templates & plugins
-- Removed: Unused/dead files
+- Removed: --
 
 ### Security & Hotfixes:
 
-- Hotfixes: Remote command execution vulnerability #1352  (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1352)
-- Hotfixes: Cross-Site Scripting Vulnerability #1360 (https://github.com/GetSimpleCMS/GetSimpleCMS/issues/1360)
+- Hotfixes: --
 
 ### Other:
 
@@ -99,6 +89,8 @@ Now supporting php7.4-8.x.
 - If you have renamed the default `/admin/` folder, this needs to be reverted back before applying this update.
 After you have applied the update, you may again personalize this.
 - Update your existing `gsconfig.php` with the following:
+
+- Versions prior to 3.3.19.1, update your existing `gsconfig.php` with the following:
 
 Add New:
 ```
