@@ -50,8 +50,7 @@ Now supporting php7.4-8.x.
 
 ## What's New ⭐
 
-- New:  Check for Update added to Install, Health Check & Plugins
-- New:  CodeMirror Theme Setting in gsconfig.php
+- New: Check for Update added to Install, Health Check & Plugins
 
 ### Updates:
 
@@ -61,9 +60,9 @@ Now supporting php7.4-8.x.
 ### Fixes:
 
 - Fixed: French language
-- Fixed: ja_JP lang name change for Linux
+- Fixed: ja_JP name change for Linux
 - Fixed: Hidden plugin
-- Fixed: Page Auto Menu Title
+- Fixed: Auto Menu Title
 
 ### Removals:
 
@@ -87,9 +86,11 @@ Now supporting php7.4-8.x.
 > Always create a backup to protect against the unexpected!
 
 - Overwrite existing files.
-- If you have renamed the default `/admin/` folder, this needs to be reverted back before applying this update. 
+- If you have renamed the default `/admin/` folder, this needs to be reverted back before applying this update.
 After you have applied the update, you may again personalize this.
 - Update your existing `gsconfig.php` with the following:
+
+- Versions prior to 3.3.19.1, update your existing `gsconfig.php` with the following:
 
 Add New:
 ```
@@ -98,21 +99,30 @@ $LANG = 'en_EN'; // es_ES, pl_PL, de_DE, uk_UK, etc.
 
 # Sort admin page list by title or menu
 define('GSSORTPAGELISTBY','menu');
-
-# Set CodeMirror Theme (blackboard or default)
-define('GSCMTHEME','blackboard');
 ```
 
 Replace section:
 ```
+# WYSIWYG editor height (default 500)
+# define('GSEDITORHEIGHT', '400');
+
 # WYSIWYG toolbars (advanced, basic or [custom config]) 
 # define('GSEDITORTOOL', 'advanced');
+
+# WYSIWYG editor language (default en)
+# define('GSEDITORLANG', 'en');
 
 # WYSIWYG Editor Options
 # define('GSEDITOROPTIONS', '');
 ```
 With updated:
 ```
+# WYSIWYG editor height (default 500)
+# define('GSEDITORHEIGHT', '400');
+
+# WYSIWYG editor language (default en)
+# define('GSEDITORLANG', 'en');
+
 # WYSIWYG toolbars (advanced, basic, advanced, island, CEbar or [custom config])
 define('GSEDITORTOOL', "CEbar");
 
