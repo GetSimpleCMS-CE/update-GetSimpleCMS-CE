@@ -50,6 +50,8 @@ Now supporting php7.4-8.x.
 
 ## What's New ⭐
 
+### New:
+
 - New:  Check for Update added to Install, Health Check & Plugins
 - New:  CodeMirror Theme Setting in gsconfig.php
 
@@ -57,6 +59,7 @@ Now supporting php7.4-8.x.
 
 - Updated: Plugin Massive Admin v6.x
 - Updated: Plugin Update CE v1.x
+- Updated: Health Check (check for SQLite3)
 
 ### Fixes:
 
