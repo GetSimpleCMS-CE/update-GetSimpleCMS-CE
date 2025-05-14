@@ -52,21 +52,15 @@ Now supporting php7.4-8.x.
 
 ### New:
 
-- New:  Check for Update added to Install, Health Check & Plugins
-- New:  CodeMirror Theme Setting in gsconfig.php
+- New:  Danish, Norwegian and Swedish langs. added.
 
 ### Updates:
 
-- Updated: Plugin Massive Admin v6.x
-- Updated: Plugin Update CE v1.x
-- Updated: Health Check (check for SQLite3)
+- Updated: --
 
 ### Fixes:
 
-- Fixed: French language
-- Fixed: ja_JP lang name change for Linux
-- Fixed: Hidden plugin
-- Fixed: Page Auto Menu Title
+- Fixed: Typo in Edit Page
 
 ### Removals:
 
