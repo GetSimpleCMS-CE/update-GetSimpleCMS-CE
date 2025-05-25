@@ -56,11 +56,11 @@ Now supporting php7.4-8.x.
 
 ### Updates:
 
-- Updated: --
+- Updated: Health Check.
 
 ### Fixes:
 
-- Fixed: Typo in Edit Page
+- Fixed: Typo in Edit Page.
 
 ### Removals:
 
