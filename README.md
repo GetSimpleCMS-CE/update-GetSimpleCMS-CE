@@ -68,7 +68,7 @@ Now supporting php7.4-8.x.
 
 ### Security & Hotfixes:
 
-- Hotfixes: RCE vulnerability patched
+- Hotfixes: RCE vulnerability CVE-2025-48492
 
 ### Other:
 
