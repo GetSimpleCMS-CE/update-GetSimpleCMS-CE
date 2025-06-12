@@ -57,6 +57,7 @@ Now supporting php7.4-8.x.
 ### Updates:
 
 - Updated: Health Check.
+- Updated: Support Page
 
 ### Fixes:
 
