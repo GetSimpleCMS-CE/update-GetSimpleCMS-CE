@@ -53,6 +53,7 @@ Now supporting php7.4-8.x.
 ### New:
 
 - New:  Danish, Norwegian and Swedish langs. added.
+- New: Salt/Hash Generator included
 
 ### Updates:
 
