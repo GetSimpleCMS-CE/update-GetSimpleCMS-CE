@@ -52,29 +52,11 @@ Now supporting php7.4-8.x.
 
 ### New:
 
-- New:  Danish, Norwegian and Swedish langs. added.
-- New: Salt/Hash Generator included
+- New: SVG support for Uploads & Filebrowser
 
 ### Updates:
 
-- Updated: Health Check.
-- Updated: Support Page
-
-### Fixes:
-
-- Fixed: Typo in Edit Page.
-
-### Removals:
-
-- Removed: --
-
-### Security & Hotfixes:
-
-- Hotfixes: RCE vulnerability CVE-2025-48492
-
-### Other:
-
-- Miscellaneous cleanup, fixes, and improvements
+- Updated: Plugin Massive Admin v6.x
 
 
 <hr><hr>
