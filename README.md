@@ -53,6 +53,8 @@ Now supporting php7.4-8.x.
 ### New:
 
 - New: SVG support for Uploads & Filebrowser
+- New: Admin Page Sorting
+- New: Update plugin from Plugins Tab
 
 ### Updates:
 
