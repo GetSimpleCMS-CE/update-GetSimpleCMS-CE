@@ -55,10 +55,16 @@ Now supporting php7.4-8.x.
 - New: SVG support for Uploads & Filebrowser
 - New: Admin Page Sorting
 - New: Update plugin from Plugins Tab
+- New: Added Twig support to theme editor
+- New: Added new theme functions: [Wiki](https://github.com/GetSimpleCMS-CE/GetSimpleCMS-CE/wiki/Template-Tags#new-theme-functions-v34)
 
 ### Updates:
 
 - Updated: Plugin Massive Admin v6.x
+
+### Updates:
+
+- Fixed: 404 handling for invalid nested URLs
 
 
 <hr><hr>
