@@ -61,6 +61,7 @@ Now supporting php7.4-8.x.
 ### Updates:
 
 - Updated: Plugin Massive Admin v6.x
+- Updated: View Sitemap UI
 
 ### Updates:
 
