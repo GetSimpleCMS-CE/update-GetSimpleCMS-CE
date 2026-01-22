@@ -63,10 +63,6 @@ Now supporting php7.4-8.x.
 - Updated: Plugin Massive Admin v6.x
 - Updated: View Sitemap UI
 
-### Updates:
-
-- Fixed: 404 handling for invalid nested URLs
-
 
 <hr><hr>
 
