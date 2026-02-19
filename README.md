@@ -60,8 +60,28 @@ Now supporting php7.4-8.x.
 
 ### Updates:
 
-- Updated: Plugin Massive Admin v6.x
-- Updated: View Sitemap UI
+- Updated: Plugin - Massive Admin v6.x (refactor, security enhancements).
+- Updated: Plugin - UpdateCE
+- Updated: Health Check
+- Updated: Support Page
+- Updated: Sitemap UI
+
+
+### Fixes:
+
+- Improved: Image and file handling. Memory usage. Security enhancements.
+
+### Security & Hotfixes:
+
+- Hotfixes: Numerous vulnerabilities patched 
+  - CVE-2026-27146 (CSRF)
+  - CVE-2026-27147 (XSS)
+  - CVE-2026-27161 (If AllowOverride is disabled)
+  - CVE-2026-27202 (Arbitrary File Read)
+
+### Other:
+
+- Miscellaneous cleanup, fixes, and improvements.
 
 
 <hr><hr>
