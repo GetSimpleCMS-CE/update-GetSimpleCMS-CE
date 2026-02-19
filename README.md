@@ -73,7 +73,7 @@ Now supporting php7.4-8.x.
 
 ### Security & Hotfixes:
 
-- Hotfixes: Numerous vulnerabilities patched 
+- Hotfixes: Numerous issues patched/enhanced 
   - CVE-2026-27146 (CSRF)
   - CVE-2026-27147 (XSS)
   - CVE-2026-27161 (If AllowOverride is disabled)
