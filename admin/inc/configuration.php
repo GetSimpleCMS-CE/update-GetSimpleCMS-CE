@@ -7,7 +7,7 @@
  */
 
 $site_full_name     = 'GetSimple CE';
-$site_version_no    = '3.3.23 2026.02.19 Beta';
+$site_version_no    = '3.3.23 2026.02.28 Beta';
 $name_url_clean     = lowercase(str_replace(' ','-',$site_full_name));
 $ver_no_clean       = str_replace('.','',$site_version_no);
 $site_link_back_url = 'https://getsimple-ce.ovh/';
