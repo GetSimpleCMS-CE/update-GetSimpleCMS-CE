@@ -7,7 +7,7 @@
  */
 
 $site_full_name     = 'GetSimple CE';
-$site_version_no    = '3.3.23 2026.02.28 Beta';
+$site_version_no    = '3.3.23 2026.06.09 Beta';
 $name_url_clean     = lowercase(str_replace(' ','-',$site_full_name));
 $ver_no_clean       = str_replace('.','',$site_version_no);
 $site_link_back_url = 'https://getsimple-ce.ovh/';
@@ -26,6 +26,20 @@ $api_url            = 'https://getsimple-ce.ovh/api/#';
 # $debugApi           = true;
 
 $cookie_redirect = 'pages.php';
+
+// If the Dashboard plugin is installed and enabled, redirect there instead
+$plugins_xml_path = dirname(__FILE__) . '/../../data/other/plugins.xml';
+if (file_exists($plugins_xml_path)) {
+    $plugins_data = simplexml_load_file($plugins_xml_path);
+    if ($plugins_data) {
+        foreach ($plugins_data->item as $item) {
+            if ((string)$item->plugin === 'Dashboard.php' && (string)$item->enabled === 'true') {
+                $cookie_redirect = 'load.php?id=Dashboard';
+                break;
+            }
+        }
+    }
+}
 
 if (!defined('GSVERSION')) define('GSVERSION', $site_version_no);
 

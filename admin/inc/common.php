@@ -203,14 +203,14 @@ if(!isset($LANG) || $LANG == '') {
 
 i18n_merge(null); // load $LANG file into $i18n
 
-// Merge in default lang to avoid empty lang tokens
-// if GSMERGELANG is undefined or false merge en_US else merge custom
-if(getDef('GSMERGELANG', true) !== false and !getDef('GSMERGELANG', true) ){
-	if($LANG !='en_US')	i18n_merge(null,"en_US");
-} else{
-	// merge GSMERGELANG defined lang if not the same as $LANG
-	if($LANG !=getDef('GSMERGELANG') ) i18n_merge(null,getDef('GSMERGELANG'));	
-}	
+// Merge fallback language to fill any missing tokens
+if( !getDef('GSMERGELANG') ) {
+	// No custom merge lang defined — fall back to en_US
+	if( $LANG != 'en_US' ) i18n_merge(null, 'en_US');
+} else {
+	// Merge the custom defined fallback lang if different from current
+	if( $LANG != getDef('GSMERGELANG') ) i18n_merge(null, getDef('GSMERGELANG'));
+}
 
 /** 
  * Init Editor globals
@@ -332,6 +332,7 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 			GSHOMEPATH . 'LICENSE',
 			GSHOMEPATH . 'Tmpfile.zip',
 			
+			GSPLUGINPATH . 'anonymous_data.php',
 			GSPLUGINPATH . 'README.md',
 			
 			GSTHEMESPATH . 'README.md',
@@ -382,6 +383,8 @@ if (get_filename_id() != 'install' && get_filename_id() != 'setup' && get_filena
 			GSADMINPATH . 'template/js/uploadify',
 			GSADMINPATH . 'template/js/codemirror/lib',
 			GSADMINPATH . 'template/js/codemirror/theme',
+			
+			GSPLUGINPATH . 'anonymous_data',
 		];
 
 		foreach ($dirsToDelete as $dir) {
@@ -417,7 +420,14 @@ if(isset($load['plugin']) && $load['plugin']){
 	
 	// main hook for common.php
 	exec_action('common');
-	
+
+	// Re-merge fallback lang in plugins.
+	if( !getDef('GSMERGELANG') ) {
+		if( $LANG != 'en_US' ) i18n_merge(null, 'en_US');
+	} else {
+		if( $LANG != getDef('GSMERGELANG') ) i18n_merge(null, getDef('GSMERGELANG'));
+	}
+
 }
 if(isset($load['login']) && $load['login']){
 	include_once(GSADMININCPATH.'login_functions.php'); 
