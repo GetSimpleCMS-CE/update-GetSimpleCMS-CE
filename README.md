@@ -52,11 +52,14 @@ Now supporting php7.4-8.x.
 
 ### New:
 
+- Dashboard Plugin: Customizable admin dashboard shown after login.
+- GS Config GUI Plugin: Visual editor for gsconfig.php configuration settings.
 - SVG support for Uploads & Filebrowser
 - Admin Page Sorting
 - Update plugin from Plugins Tab
 - Added Twig support to theme editor
 - Added new theme functions: [Wiki](https://github.com/GetSimpleCMS-CE/GetSimpleCMS-CE/wiki/Template-Tags#new-theme-functions-v34)
+- Single-use password reset token.
 
 ### Updates:
 
@@ -69,15 +72,21 @@ Now supporting php7.4-8.x.
 
 ### Fixes:
 
+- Fix: fallback for any missing lang tokens in plugins.
+- Fix: stripslashes in components.
 - Improved: Image and file handling. Memory usage. Security enhancements.
+
 
 ### Security & Hotfixes:
 
 - Hotfixes: Numerous issues patched/enhanced 
-  - CVE-2026-27146 (CSRF)
-  - CVE-2026-27147 (XSS)
+  - CVE-2026-27146 (CSRF in File Upload)
+  - CVE-2026-27147 (XSS in SVGs)
   - CVE-2026-27161 (If AllowOverride is disabled)
-  - CVE-2026-27202 (Arbitrary File Read)
+  - CVE-2026-27202 (Arbitrary File Read, MA)
+  - CVE-2026-28495 (CSRF in gsconfig.php, MA)
+  - CVE-xxxx-xxxxx (Setup Logic Flaw)
+  - CVE-xxxx-xxxxx (Predictable Password Reset)
 
 ### Other:
 
