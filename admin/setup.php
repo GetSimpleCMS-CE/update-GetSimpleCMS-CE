@@ -13,6 +13,13 @@ $load['plugin'] = true;
 if(isset($_POST['lang']) && trim($_POST['lang']) != '') { $LANG = $_POST['lang']; }
 include('inc/common.php');
 
+if (file_exists('../gsconfig.php')) {
+	$xml = @simplexml_load_file(GSDATAOTHERPATH . 'website.xml');
+	if ($xml && (string)$xml->SITEURL != '') {
+		die("Security Error: Setup has already been completed. Please delete admin/setup.php manually.");
+	}
+}
+
 # default variables
 if(defined('GSLOGINSALT')) { $logsalt = GSLOGINSALT;} else { $logsalt = null; }
 $kill = ''; // fatal error kill submission reshow form
@@ -161,6 +168,8 @@ if(isset($_POST['submitted'])) {
 		$message .= '<p><em>'. i18n_r('EMAIL_THANKYOU') .' '.$site_full_name.'!</em></p>';
 		$status   = sendmail($EMAIL,$subject,$message);
 		# activate default plugins
+		change_plugin('Dashboard.php',true);
+		change_plugin('gsConfigGUI.php',true);
 		change_plugin('massiveAdmin.php',true);
 		change_plugin('UpdateCE.php',true);
 
